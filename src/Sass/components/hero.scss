@@ -1,0 +1,56 @@
+.hero{
+    background: none;
+    width: 100%;
+    height: 30rem;
+    position: relative;
+    text-align: center;
+    background: url('https://ik.imagekit.io/s6fxsq8kw/users_avatars/trippyBannerImg2_HzP3MIu69.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1661324244086');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-clip: content-box;
+    // &__imageContainer{
+    //     position: absolute;
+    //     top: 0;
+    //     left: 0;
+    //     width: 100%;
+    //     height: 100%;
+    // }
+
+    // &__image{
+    //     width: 100%;
+    //     height: 100%;
+    //     object-fit: cover;
+    // }
+                        
+    &__darkener{
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba($color: #000000, $alpha: 0.5);
+    }
+
+    &__text{
+        position: absolute;
+        left: 25%;
+        top: 50%;
+        text-transform: uppercase;
+        font-family: 'Special Elite', cursive;
+        font-size: 3rem;
+        letter-spacing: 0.3rem;
+        // font-weight: 400;
+        color: $color-primary-background;
+        transform: translate(-50%, -50%);
+        margin-left: 4rem;
+
+        // span{
+        //     color: $color-accent-pink;
+        // }
+    }
+
+    @media screen and (max-width: 768px) {
+        height: 25rem;
+    }
+}

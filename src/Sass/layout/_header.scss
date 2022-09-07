@@ -1,0 +1,102 @@
+.header{
+    background: $color-primary-dark-2;
+    width: 100%;
+    height: 5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    -webkit-backface-visibility: hidden; 
+    backface-visibility: hidden;
+    z-index: 4000;
+    position: sticky;
+    left: 0;
+    top: 0;
+    
+
+    &__title{
+        color: $color-primary-white;
+        font-family: 'Special Elite', cursive;
+        letter-spacing: 0.3rem;
+        cursor: pointer;
+    }
+
+    &__nav{
+        display: flex;
+        align-items: center;
+    }
+
+
+
+    &__nav__profile-icon__container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: 2rem;
+        position: relative;
+    }
+
+    &__nav__profile__dataContainer{
+        display: flex;
+        align-items: center;
+        margin-left: 2rem;
+        position: relative;
+    }
+
+    &__nav__profile-image__container{
+        width: 2.5rem;
+        height: 2.5rem;
+        overflow: hidden;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+
+    &__nav__profile-image{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    &__nav__profile__username{
+        color: $color-primary-white;
+        margin-left: 0.5rem;
+    }
+
+    &__auth__button{
+        padding: 0.7rem 1.5rem;
+        font-family: 'Josefin Sans', sans-serif;
+        font-size: 1rem;
+        font-weight: 700;
+        background: #39607a;
+        border: none;
+        outline: bone;
+        color: $color-primary-white;
+        border-radius: 0.5rem;
+        cursor: pointer;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        
+        &:hover{
+            background: lighten(#39607a, $amount: 2);
+        }
+    }
+}
+
+.profile-icon{
+    color: $color-primary-white;
+}
+
+.profile-icon.MuiIcon-fontSizeLarge{
+    font-size: 2.3rem;
+}
+
+// .profile{
+//     position: relative;
+// }
+
+
+@media screen and (max-width: 768px) {
+    .header__auth__button, .header__nav__profile__username{
+        display: none;
+        visibility: hidden;
+    }
+}

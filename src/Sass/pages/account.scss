@@ -1,0 +1,84 @@
+.accountPage{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    
+    @media screen and (max-width: 900px) {
+        display: block;
+    }
+}
+
+.accountPage__menu{
+    flex: 25%;
+    background-color: #212529;
+    padding: 2rem 2rem;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 5rem;
+    left: 0;
+    height: 100vh;
+}
+
+
+
+.accountPage__sideNav__users{
+    list-style: none;
+    margin-bottom: 3rem;
+}
+
+.accountPage__edits{
+    flex: 75%;
+
+    // @media screen and (max-width: 900px) {
+    //     flex: 100%;
+    // }
+}
+
+.accountPage__nav__item{
+    width: 100%;
+    // background: green;
+    display: flex;
+    align-items: center;
+    margin: 1rem 0;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: all ease 0.2s;
+    
+    p{
+        transform: translateY(12.5%);
+        margin-left: 1.1rem;
+        color: #f0f4ef;
+        font-size: 1.1rem;
+        // font-weight: 700;
+        // text-transform: uppercase;
+    }
+}
+
+.active{
+    background: #0d5b70;
+    border-radius: 2rem;
+}
+
+.accountPage__nav__icon{
+    color: #f0f4ef;
+}
+
+.accountPage__sideNav__admin__container{
+    margin-top: 2rem;
+
+    .accountPage__sideNav__admin__Heading{
+        width: 100%;
+        // background: green;
+        padding: 0.5rem 1rem;
+        text-transform: uppercase;
+        font-size: 1rem;
+        color: #f0f4ef;
+        // border-bottom: 0.08rem solid #f0f4ef;
+    }
+}
+
+.accountPage__edits{
+    padding: 4rem 2rem;
+}
+
+

@@ -1,0 +1,17 @@
+.bookedTours{
+    width: 100%;
+
+    h1{
+        font-size: 2rem;
+        margin: 2rem 5rem;
+        
+    }
+
+    &__container{
+        width: 90%;
+        margin: 0 auto 4rem auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+        gap: 3rem 3rem;
+    }
+}

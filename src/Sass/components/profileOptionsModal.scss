@@ -1,0 +1,35 @@
+.profileOptionsModal{
+    position: absolute;
+    width: 12rem;
+    right: 0;
+    top: 4rem;
+    background: #fff;
+    border-radius: 0.5rem;
+    opacity: 1;
+    transition: opacity 1s ease ;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+    &__list{
+        list-style: none;
+        width: 100%;
+        padding: 1rem;
+    }
+
+    &__list__item{
+        padding: 0.5rem 0;
+        margin-top: 0.5rem;
+        cursor: pointer;
+    }
+
+    &__list__item--username{
+        font-weight: 700;
+        font-size: 1.3rem;
+        color: #d7263d;
+        border-bottom: 0.1rem solid #c7c7c7;
+        margin-bottom: 1rem;
+    }
+}
+
+.list-item-hovered{
+    color: #d7263d;
+}

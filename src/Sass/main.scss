@@ -1,0 +1,27 @@
+
+@import "./abstracts/variables";
+@import "./abstracts/mixins";
+@import "./base/base";
+@import "./layout/header";
+@import "./layout/footer";
+@import "./components/hero.scss";
+@import "./components/tours.scss";
+@import "./components/tourCard.scss";
+@import "./components/tourPageHero.scss";
+@import "./components/tourPageMainData.scss";
+@import "./components/map.scss";
+@import "./components/settings.scss";
+@import "./components/upcomingFeature.scss";
+@import "./components/profileOptionsModal.scss";
+@import "./components/welcomeModal.scss";
+@import "./pages/tourDetail.scss";
+@import "./pages/auth.scss";
+@import "./pages/account.scss";
+@import "./pages/passwordReset.scss";
+@import "./pages/bookedTours.scss";
+@import "./pages/loader.scss";
+@import "./pages/home.scss";
+@import "./pages/error.scss";
+
+
+

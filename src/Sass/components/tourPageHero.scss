@@ -1,0 +1,93 @@
+.tourPageHero{
+    width: 100%;
+    height: 30rem;
+    position: relative;
+}
+
+.tourPageHeroImage{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+// .slider{
+//     width: 100%;
+//     height: 30rem;
+//     position: relative;
+// }
+
+// .arrowContainer{
+//     position: absolute;
+//     top: 50%;
+//     transform: translate(0, -50%);
+//     width: 5.5rem;
+//     height: 5.5rem;
+//     border-radius: 50%;
+//     background: #d3d3d3;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     z-index: 200;
+//     cursor: pointer;
+// }
+
+// .arrowContainer--left{
+//     left: 4rem;
+// }
+
+// .arrowContainer--right{
+//     right: 4rem;
+// }
+
+// .sliderArrow.MuiIcon-fontSizeLarge{
+//     font-size: 2.5rem;
+// }
+
+
+
+
+
+
+
+
+
+
+// .slide{
+//     position: absolute;
+//     left: 0;
+//     top: 0;
+//     width: 100%;
+//     height: 100%;
+// }
+
+// .slide > img{
+//     width: 100%;
+//     height: 100%;
+//     object-fit: cover;
+// }
+
+// .slider__btn{
+//     position: absolute;
+//     top: 50%;
+//     z-index: 10;
+  
+//     border: none;
+//     background: rgba(255, 255, 255, 0.7);
+//     font-family: inherit;
+//     color: #333;
+//     border-radius: 50%;
+//     height: 5.5rem;
+//     width: 5.5rem;
+//     font-size: 3.25rem;
+//     cursor: pointer;
+// }
+
+// .slider__btn--right{
+//     right: 6%;
+//     transform: translate(50%, -50%)
+// }
+
+// .slider__btn--left{
+//     left: 6%;
+//     transform: translate(-50%, -50%);
+// }

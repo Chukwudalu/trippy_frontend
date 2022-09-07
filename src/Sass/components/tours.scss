@@ -1,0 +1,24 @@
+.tours{
+    width: 80%;
+    margin: 0 auto 5rem auto;
+
+    &__heading{
+        margin: 3rem 0 3rem 0;
+        font-family: 'Stoke', serif;
+        font-size: 2rem;
+        color: $color-primary-text;
+    }
+
+    &__list{
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+        gap: 3rem 3rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .tours{
+        width: 90%;
+        // margin: auto;
+    }
+}

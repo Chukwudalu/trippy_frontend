@@ -1,0 +1,137 @@
+.profile__settings{
+    width: 100%;
+}
+
+.profile__settings__basicInfo{
+    width: 100%;
+    padding: 2rem 0;
+    border-bottom: 0.1rem solid rgb(172, 172, 172);
+}
+
+.profile__settings__basicInfo--password{
+    padding: 4rem 0 2rem 0;
+    border-bottom: none;
+}
+
+.profile__form{
+    width: 60%;
+    margin: auto;
+    
+    h2{
+        text-transform: uppercase;
+        font-size: 1.4rem;
+        margin-bottom: 2.5rem;
+    }
+}
+
+.profile__form__group{
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+.profile__form__label{
+    display: block;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: $color-primary-text
+}
+
+.profile__form__input{
+    display: block;
+    font-family: inherit;
+    font-size: 1rem;
+    color: inherit;
+    padding: 1.25rem 1rem;
+    border: none;
+    width: 100%;
+    background-color: #dfdfdf;
+    outline: none;
+    border-top: 3px solid transparent;
+    border-bottom: 3px solid transparent;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    border-radius: 0.4rem;
+}
+
+.profile__form__photo-group{
+    margin-top: 3rem;
+    width: 55%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.profile__photo__container{
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.profile__photo{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+// .profile__photo__change__btn{
+//     background: none;
+//     padding: 0.5rem;
+//     font-family: inherit;
+//     font-size: 1.1rem;
+//     font-weight: 500;
+//     border: none;
+//     border-bottom: 0.1rem solid;
+//     color: #284b63;
+//     cursor: pointer;
+// }
+
+.settings__btn__container{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+.settings__btn{
+    margin-top: 2rem;
+    // float: right;
+    background: none;
+    background-color: #39607a;
+    padding: 1rem 2rem;
+    font-family: inherit;
+    font-size: 1rem;
+    border: none;
+    color: #fff;
+    border-radius: 2.5rem;
+    cursor: pointer;
+
+    &:hover{
+        background: lighten(#39607a, $amount: 2);
+    }
+}
+
+// @media screen and (max-width: 390px) {
+//     .profile__form{
+//         width: 95%;
+//     }
+// }
+
+@media screen and (max-width: 900px) {
+    .profile__form{
+        width: 95%;
+    }
+
+    .profile__form__photo-group{
+        width: 100%
+    }
+
+    .profile__photo__container{
+        width: 3rem;
+        height: 3rem;
+    }
+}
+
+
+

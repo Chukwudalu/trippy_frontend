@@ -1,7 +1,8 @@
 import {useRef, useEffect } from 'react';
 import mapboxgl from 'mapbox-gl';
 
-mapboxgl.accessToken = 'pk.eyJ1IjoiY2h1a3d1ZGFsdSIsImEiOiJjbDVocGN2OGcwMGVjM2lsYWY3ZmF5Ym84In0.ednAwsgSiemYp0UQK5lS-w'
+// mapboxgl.accessToken = 'pk.eyJ1IjoiY2h1a3d1ZGFsdSIsImEiOiJjbDVocGN2OGcwMGVjM2lsYWY3ZmF5Ym84In0.ednAwsgSiemYp0UQK5lS-w'
+mapboxgl.accessToken = process.env.REACT_APP_MABBOXGL_ACCESSTOKEN
 
 const Map = function({tourDetail}) {
     const mapContainer = useRef(null);

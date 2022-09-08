@@ -7,7 +7,7 @@ import { IKImage } from 'imagekitio-react';
 import ProfileOptionsModal from './ProfileComponents/ProfileOptionsModal';
 import logOutUser from '../utils/logOutUser';
 
-const urlEndpoint = 'https://ik.imagekit.io/s6fxsq8kw/';
+const urlEndpoint = process.env.REACT_APP_IMAGEKIT_URLENDPOINT;
 
 function Header({profileIconClicked, handleProfileIconClick}) {
   // const [ loggedIn, setIsLoggedIn ] = useState(null)

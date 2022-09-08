@@ -11,7 +11,7 @@ function CheckoutSuccess() {
   // This is only temporary
   const handleCreateBooking = () => {
     const searchParams = new URLSearchParams(window.location.search)
-    axios.post('http://localhost:8800/api/v1/bookings/create-booking-checkout', {
+    axios.post(`${process.env.REACT_APP_SERVER_URL}/api/v1/bookings/create-booking-checkout`, {
       tour: searchParams.get('tour'),
       user: searchParams.get('user'),
       price: searchParams.get('price')
@@ -21,7 +21,7 @@ function CheckoutSuccess() {
       if(res.data.booked) console.log(res.data.booked)
       
     })
-      .catch(err => console.log(err.message))
+      .catch(err => null)
   }
 
   return (

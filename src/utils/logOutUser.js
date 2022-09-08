@@ -9,7 +9,7 @@ const createEncyptStorage = () => {
 }
 
 const logOutUser = () => {
-    axios.get('http://localhost:8800/api/v1/users/logout', { withCredentials: true})
+    axios.get(`${process.env.REACT_APP_SERVER_URL}/api/v1/users/logout`, { withCredentials: true})
       .then(res => {
         if(res.data.status === 'success'){
           createEncyptStorage().removeItem('loggedInState')

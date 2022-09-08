@@ -33,7 +33,7 @@ function Header({profileIconClicked, handleProfileIconClick}) {
 
   const getUserData = () => {
     if(decryptFromLocalStorage()[0]){
-      axios.get('http://localhost:8800/api/v1/users/me', { withCredentials: true})
+      axios.get(`${process.env.REACT_APP_SERVER_URL}/api/v1/users/me`, { withCredentials: true})
         .then((res) => {
           if(res.data.data.data) setUserInfo(res.data.data.data)
         })

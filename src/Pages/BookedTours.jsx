@@ -21,7 +21,7 @@ function BookedTours() {
     
 
     const getBookedTours = () => {
-        axios.get('http://localhost:8800/api/v1/bookings/my-tours', { withCredentials: true })
+        axios.get(`${process.env.REACT_APP_SERVER_URL}/api/v1/bookings/my-tours`, { withCredentials: true })
             .then(res => {
                 setBookedTours(res.data.tours)
                 setLoading(false)

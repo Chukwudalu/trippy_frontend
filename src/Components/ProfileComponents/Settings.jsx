@@ -19,13 +19,13 @@ function Settings() {
     }, [])
     
     const getUserData = () => {
-        axios.get('http://localhost:8800/api/v1/users/me', { withCredentials: true })
+        axios.get(`${process.env.REACT_APP_SERVER_URL}/api/v1/users/me`, { withCredentials: true })
             .then(res => {
                 setName(res.data.data.data.name)
                 setEmail(res.data.data.data.email)
                 setPhotoUrl(res.data.data.data.photo)
             })
-            .catch(err => console.log(err.message))
+            .catch(err => null)
     }
 
     const handleUserPhotoChange = (e) => {
@@ -57,7 +57,7 @@ function Settings() {
         formData.append('name', name);
         formData.append('email', email);
         formData.append('photo', photo)
-        axios.patch('http://localhost:8800/api/v1/users/updateMe', formData , { withCredentials: true })
+        axios.patch(`${process.env.REACT_APP_SERVER_URL}/api/v1/users/updateMe`, formData , { withCredentials: true })
             .then(res => {
                 setName(res.data.data.user.name)
                 setEmail(res.data.data.user.email)
@@ -69,10 +69,10 @@ function Settings() {
     }
 
     const updateUserPassword = () => {
-        axios.patch('http://localhost:8800/api/v1/users/updatePassword', 
+        axios.patch(`${process.env.REACT_APP_SERVER_URL}/api/v1/users/updatePassword`, 
         { oldPassword, password, passwordConfirm }, { withCredentials: true })
-            .then(res => console.log(res))
-            .catch(err => console.log(err.message))
+            .then(res => null)
+            .catch(err => null)
     }
 
 

@@ -12,19 +12,22 @@ function Tours() {
   
 
   const getAllTours = (setTours) => {
-    axios.get('http://localhost:8800/api/v1/tours', { withCredentials: true })
+    axios.get(`${process.env.REACT_APP_SERVER_URL}/api/v1/tours`, { withCredentials: true })
       .then(res => {
         setTours(res.data.data.data)
       })
       .catch(err => {
-        if(err) return null
+        if(err){
+          console.log(err.message)
+          console.log(err.status)
+        }
       })
   }
 
   const getLikedTours = () => {
     if(!loggedInState()) return 
 
-    axios.get('http://localhost:8800/api/v1/tours/liked-tours', { withCredentials: true})
+    axios.get(`${process.env.REACT_APP_SERVER_URL}/api/v1/tours/liked-tours`, { withCredentials: true})
       .then(res => {
         setUserLikedTours(res.data.data.likedToursId)
         // console.log(res.data.data)

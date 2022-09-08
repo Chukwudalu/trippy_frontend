@@ -13,7 +13,7 @@ function EmailEntryForPasswordReset() {
     
     const handleEmailEntryButtonClick = (e) => {
         e.preventDefault();
-        axios.post('http://localhost:8800/api/v1/users/forgotPassword', { email })
+        axios.post(`${process.env.REACT_APP_SERVER_URL}/api/v1/users/forgotPassword`, { email })
             .then(res => {
                 if(res.status === 200){
                     setIsSuccess(true)

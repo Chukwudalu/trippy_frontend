@@ -15,7 +15,7 @@ function TourDetail() {
 
     const [ tourData, setTourData ] = useState({})
     const [ loading, setLoading ] = useState(true)
-    const [color, setColor] = useState("#39607a");
+    const color = "#39607a"
     
     // tour related processes
     useEffect(() => {
@@ -28,7 +28,7 @@ function TourDetail() {
     
 
     const getTourData = () => {
-        axios.get(`http://localhost:8800/api/v1/tourFromSlug/${tourSlug}`)
+        axios.get(`${process.env.REACT_APP_SERVER_URL}/api/v1/tourFromSlug/${tourSlug}`)
             .then(res => {
                 setTourData(res.data.tour)
                 setLoading(false)

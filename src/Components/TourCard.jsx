@@ -26,7 +26,7 @@ const TourCard = memo(function({tourId, tourName, tourImgCover, tourRating, tour
 
   const handleTourFavoriteIconClick = async () => {
     try {
-        const tourLike = await axios.post(`http://localhost:8800/api/v1/tours/${tourId}/toggle-like`, null , { withCredentials: true});
+        const tourLike = await axios.post(`${process.env.REACT_APP_SERVER_URL}/api/v1/tours/${tourId}/toggle-like`, null , { withCredentials: true});
 
         if(tourLike.status === 201) setIsLiked(true) 
         else setIsLiked(false)

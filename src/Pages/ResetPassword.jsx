@@ -12,12 +12,12 @@ function ResetPassword() {
 
   const handleResetButtonClick = (e) => {
     e.preventDefault()
-    axios.patch(`http://localhost:8800/api/v1/users/resetPassword/${resetToken}`, { password, passwordConfirm })
+    axios.patch(`${process.env.REACT_APP_SERVER_URL}/api/v1/users/resetPassword/${resetToken}`, { password, passwordConfirm })
       .then(res => {
-        console.log(res)
+        // console.log(res)
         window.location.assign('/login')
       })
-      .catch(err => console.log(err))
+      .catch(err => null)
   }
 
   return (

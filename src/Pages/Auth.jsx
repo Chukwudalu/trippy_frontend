@@ -45,7 +45,7 @@ function Auth() {
         email,
         password
       }
-      axios.post('http://localhost:8800/api/v1/users/login', authData, { withCredentials: true})
+      axios.post(`${process.env.REACT_APP_SERVER_URL}/api/v1/users/login`, authData, { withCredentials: true})
         .then(res => {
           // const username = res.data.data.user.name.split(' ')[0]
           encryptAndSaveToLocalStorage(res.data.isLoggedIn)
@@ -66,7 +66,7 @@ function Auth() {
         password,
         passwordConfirm
       }
-      axios.post('http://localhost:8800/api/v1/users/signup', authData, { withCredentials: true})
+      axios.post(`${process.env.REACT_APP_SERVER_URL}/api/v1/users/signup`, authData, { withCredentials: true})
         .then(res => { 
           // const username = res.data.data.user.name.split(' ')[0]
           encryptAndSaveToLocalStorage(res.data.isLoggedIn)

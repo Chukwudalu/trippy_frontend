@@ -5,6 +5,7 @@ import axios from 'axios'
 import { EncryptStorage } from 'encrypt-storage';
 import AuthErrorBox from '../Components/AuthErrorBox';
 
+axios.defaults.withCredentials = true;
 
 function Auth() {
   const location = useLocation();

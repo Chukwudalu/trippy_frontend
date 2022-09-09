@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import useResizer from '../../utils/customHooks/useResizer'
 import { EncryptStorage } from 'encrypt-storage';
 import logOutUser from '../../utils/logOutUser';
@@ -23,7 +24,8 @@ function handleMouseOver() {
 
 
 function ProfileOptionsModal({handleProfileIconClick, username}) {
-  const [ screenWidth, mobileWidthBreakPoint ] = useResizer()
+  const [ screenWidth, mobileWidthBreakPoint ] = useResizer();
+  const navigate = useNavigate()
 
   const createEncyptStorage = () => {
     const encryptStorage = new EncryptStorage(process.env.REACT_APP_LOCALSTORAGE_ENCRYPTION_SECRET_KEY, {
@@ -46,7 +48,7 @@ function ProfileOptionsModal({handleProfileIconClick, username}) {
         { 
           !decryptFromLocalStorage()[0] && screenWidth < 768 ? (
             <ul className='profileOptionsModal__list'>
-              <li className='profileOptionsModal__list__item' onClick={() => window.location.assign('/login')}>Log In</li>
+              <li className='profileOptionsModal__list__item' onClick={() => navigate('/login')}>Log In</li>
             </ul>
           ): decryptFromLocalStorage()[0] ? (
             <ul className='profileOptionsModal__list'>

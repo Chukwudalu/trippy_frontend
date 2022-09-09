@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import useResizer from '../../utils/customHooks/useResizer'
 import { EncryptStorage } from 'encrypt-storage';
 import logOutUser from '../../utils/logOutUser';
+import loggedInState from '../../utils/loggedInState';
 
 function handleMouseOver() {
   const listItems = document.querySelectorAll('.profileOptionsModal__list__item');
@@ -27,17 +28,17 @@ function ProfileOptionsModal({handleProfileIconClick, username}) {
   const [ screenWidth, mobileWidthBreakPoint ] = useResizer();
   const navigate = useNavigate()
 
-  const createEncyptStorage = () => {
-    const encryptStorage = new EncryptStorage(process.env.REACT_APP_LOCALSTORAGE_ENCRYPTION_SECRET_KEY, {
-      prefix: '@base'
-    }); 
-    return encryptStorage
-  }
+  // const createEncyptStorage = () => {
+  //   const encryptStorage = new EncryptStorage(process.env.REACT_APP_LOCALSTORAGE_ENCRYPTION_SECRET_KEY, {
+  //     prefix: '@base'
+  //   }); 
+  //   return encryptStorage
+  // }
 
-  const decryptFromLocalStorage = () => {
-    const loggedInState = createEncyptStorage().getItem('loggedInState');
-    return [loggedInState]
-  }
+  // const decryptFromLocalStorage = () => {
+  //   const loggedInState = createEncyptStorage().getItem('loggedInState');
+  //   return [loggedInState]
+  // }
 
   useEffect(() => {
     handleMouseOver()
@@ -46,13 +47,13 @@ function ProfileOptionsModal({handleProfileIconClick, username}) {
   return (
       <div className='profileOptionsModal'>
         { 
-          !decryptFromLocalStorage()[0] && screenWidth < 768 ? (
+          !loggedInState()[0] && screenWidth < 768 ? (
             <ul className='profileOptionsModal__list'>
               <li className='profileOptionsModal__list__item' onClick={() => navigate('/login')}>Log In</li>
             </ul>
-          ): decryptFromLocalStorage()[0] ? (
+          ): loggedInState()[0] ? (
             <ul className='profileOptionsModal__list'>
-              { decryptFromLocalStorage()[0] && screenWidth < 768 && (<li className='profileOptionsModal__list__item profileOptionsModal__list__item--username'>{username?.split(' ')[0]}</li>)}
+              { loggedInState()[0] && screenWidth < 768 && (<li className='profileOptionsModal__list__item profileOptionsModal__list__item--username'>{username?.split(' ')[0]}</li>)}
 
               <li className='profileOptionsModal__list__item' onClick={() => {
                 window.location.assign('/profile/me')

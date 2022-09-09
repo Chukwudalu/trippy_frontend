@@ -9,7 +9,8 @@ axios.defaults.withCredentials = true;
 
 function Auth() {
   const location = useLocation();
-  // const navigate = useNavigate()
+  
+  const navigate = useNavigate()
   const authType = location.pathname.split('/')[1];
 
   const [name, setName] = useState('');
@@ -34,8 +35,9 @@ function Auth() {
   }
 
 
-  const encryptAndSaveToLocalStorage = (loggedInState) => {
+  const encryptAndSaveToLocalStorage = (loggedInState, gat) => {
     createEncyptStorage().setItem('loggedInState', loggedInState)
+    createEncyptStorage().setItem('gat', gat)
   }
 
   const handleFormSubmit = (e) => {
@@ -49,9 +51,9 @@ function Auth() {
       axios.post(`${process.env.REACT_APP_SERVER_URL}/api/v1/users/login`, authData, { withCredentials: true})
         .then(res => {
           // const username = res.data.data.user.name.split(' ')[0]
-          encryptAndSaveToLocalStorage(res.data.isLoggedIn)
-          window.location.assign('/')
-          // navigate('/')
+          console.log(res.data)
+          encryptAndSaveToLocalStorage(res.data.isLoggedIn, res.data.token)
+          navigate('/')
         })
         .catch(err => {
           setAuthError(true);
@@ -70,8 +72,8 @@ function Auth() {
       axios.post(`${process.env.REACT_APP_SERVER_URL}/api/v1/users/signup`, authData, { withCredentials: true})
         .then(res => { 
           // const username = res.data.data.user.name.split(' ')[0]
-          encryptAndSaveToLocalStorage(res.data.isLoggedIn)
-          window.location.assign('/')
+          encryptAndSaveToLocalStorage(res.data.isLoggedIn, res.data.token)
+          navigate('/')
         })
         .catch(err => {
           setAuthError(true);

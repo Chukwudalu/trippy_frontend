@@ -1,5 +1,6 @@
 import {useEffect, useState} from 'react';
 import axios from 'axios';
+import loggedInState from '../../utils/loggedInState';
 // import { EncryptStorage } from 'encrypt-storage';
 // import guide2 from '../../assets/tourGuideImg/guide2.jpg'
 
@@ -19,7 +20,7 @@ function Settings() {
     }, [])
     
     const getUserData = () => {
-        axios.get(`${process.env.REACT_APP_SERVER_URL}/api/v1/users/me`, { withCredentials: true })
+        axios.post(`${process.env.REACT_APP_SERVER_URL}/api/v1/users/me`, { token: loggedInState()[1]} ,{ withCredentials: true })
             .then(res => {
                 setName(res.data.data.data.name)
                 setEmail(res.data.data.data.email)

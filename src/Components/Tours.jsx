@@ -27,7 +27,7 @@ function Tours() {
   const getLikedTours = () => {
     if(!loggedInState()) return 
 
-    axios.get(`${process.env.REACT_APP_SERVER_URL}/api/v1/tours/liked-tours`, { withCredentials: true})
+    axios.post(`${process.env.REACT_APP_SERVER_URL}/api/v1/tours/liked-tours`, { token: loggedInState()[1]} ,{ withCredentials: true})
       .then(res => {
         setUserLikedTours(res.data.data.likedToursId)
         // console.log(res.data.data)

@@ -7,9 +7,9 @@ function BookTourButton({tourId}) {
   const navigate = useNavigate()
 
   const handleBookTourClick = () => {
-    if (!loggedInState()) return navigate('/login');
+    if (!loggedInState()[0]) return navigate('/login');
 
-    axios.get(`${process.env.REACT_APP_SERVER_URL}/api/v1/bookings/checkout-session/${tourId}`, { withCredentials: true })
+    axios.post(`${process.env.REACT_APP_SERVER_URL}/api/v1/bookings/checkout-session/${tourId}`, { token: loggedInState()[1]} ,{ withCredentials: true })
       .then(res => {
         // console.log(res.data.session.url)
         if(res.data.session.url) window.location.href = res.data.session.url;

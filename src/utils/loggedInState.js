@@ -5,8 +5,9 @@ const loggedInState = () => {
         prefix: '@base'
     });
     const loggedInState = encryptStorage.getItem('loggedInState');
+    const gat = encryptStorage.getItem('gat')
 
-    return loggedInState
+    return [loggedInState, gat]
 }
 
 export default loggedInState

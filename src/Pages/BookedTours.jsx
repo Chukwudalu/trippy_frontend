@@ -3,7 +3,7 @@ import axios from 'axios'
 import BookedTour from '../Components/BookedTour';
 import Error from './Error';
 import ClipLoader from "react-spinners/ClipLoader";
-
+import loggedInState from '../utils/loggedInState';
 
 function BookedTours() {
     const [ bookedTours, setBookedTours ] = useState([]);
@@ -21,7 +21,7 @@ function BookedTours() {
     
 
     const getBookedTours = () => {
-        axios.get(`${process.env.REACT_APP_SERVER_URL}/api/v1/bookings/my-tours`, { withCredentials: true })
+        axios.post(`${process.env.REACT_APP_SERVER_URL}/api/v1/bookings/my-tours`, { token: loggedInState()[1]} ,{ withCredentials: true })
             .then(res => {
                 setBookedTours(res.data.tours)
                 setLoading(false)

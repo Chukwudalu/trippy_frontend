@@ -15,8 +15,8 @@ import Settings from './Components/ProfileComponents/Settings';
 import CheckoutSuccess from './Components/CheckoutSuccess';
 import NotFound from './Components/NotFound';
 import BookedTours from './Pages/BookedTours';
-import loggedInState from './utils/loggedInState';
-import WelcomeModal from './Components/WelcomeModal';
+// import loggedInState from './utils/loggedInState';
+// import WelcomeModal from './Components/WelcomeModal';
 import Footer from './Components/Footer';
 
 

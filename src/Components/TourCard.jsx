@@ -5,6 +5,8 @@ import { FavoriteBorderOutlined, Favorite,
 import { pink } from '@mui/material/colors';
 import axios from 'axios'
 import { useEffect } from 'react';
+import loggedInState from '../utils/loggedInState';
+// import { EncryptStorage } from 'encrypt-storage';
 
 
 const TourCard = memo(function({tourId, tourName, tourImgCover, tourRating, tourRatingsQty,  
@@ -20,13 +22,15 @@ const TourCard = memo(function({tourId, tourName, tourImgCover, tourRating, tour
     navigate(`/tours/${tourSlug}`)
   }
 
+  
+
   useEffect(() => {
     if(tourLiked) setIsLiked(true)
   },[]) // eslint-disable-line react-hooks/exhaustive-deps
 
   const handleTourFavoriteIconClick = async () => {
     try {
-        const tourLike = await axios.post(`${process.env.REACT_APP_SERVER_URL}/api/v1/tours/${tourId}/toggle-like`, null , { withCredentials: true});
+        const tourLike = await axios.post(`${process.env.REACT_APP_SERVER_URL}/api/v1/tours/${tourId}/toggle-like`, { token : loggedInState()[1]} , { withCredentials: true});
 
         if(tourLike.status === 201) setIsLiked(true) 
         else setIsLiked(false)

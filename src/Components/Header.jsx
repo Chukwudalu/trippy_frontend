@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { AccountCircleOutlined } from '@mui/icons-material'
 import { EncryptStorage } from 'encrypt-storage';
+import loggedInState from '../utils/loggedInState';
 import axios from 'axios';
 import { IKImage } from 'imagekitio-react';
 import ProfileOptionsModal from './ProfileComponents/ProfileOptionsModal';
@@ -19,23 +20,25 @@ function Header({profileIconClicked, handleProfileIconClick}) {
     getUserData()
   },[])
 
-  const createEncyptStorage = () => {
-    const encryptStorage = new EncryptStorage(process.env.REACT_APP_LOCALSTORAGE_ENCRYPTION_SECRET_KEY, {
-      prefix: '@base'
-    }); 
-    return encryptStorage
-  }
+  // const createEncyptStorage = () => {
+  //   const encryptStorage = new EncryptStorage(process.env.REACT_APP_LOCALSTORAGE_ENCRYPTION_SECRET_KEY, {
+  //     prefix: '@base'
+  //   }); 
+  //   return encryptStorage
+  // }
 
-  const decryptFromLocalStorage = () => {
-    const loggedInState = createEncyptStorage().getItem('loggedInState');
-    return [loggedInState]
-  }
+  // const decryptFromLocalStorage = () => {
+  //   const loggedInState = createEncyptStorage().getItem('loggedInState');
+  //   return loggedInState
+  // }
 
   const getUserData = () => {
-    if(decryptFromLocalStorage()[0]){
-      axios.get(`${process.env.REACT_APP_SERVER_URL}/api/v1/users/me`, { withCredentials: true})
+    if(loggedInState()[0]){
+      axios.post(`${process.env.REACT_APP_SERVER_URL}/api/v1/users/me`, { token: loggedInState()[1]},{ withCredentials: true})
         .then((res) => {
-          if(res.data.data.data) setUserInfo(res.data.data.data)
+          if(res.data.data.data) {
+            setUserInfo(res.data.data.data)
+          }
         })
         .catch(err => {
           if (err.response.status === 401){
@@ -51,11 +54,11 @@ function Header({profileIconClicked, handleProfileIconClick}) {
       <h1 className='header__title' onClick={() => navigate('/')}>Trippy</h1>
       <nav className='header__nav'>
         {
-          decryptFromLocalStorage()[0]? (<button className='header__auth__button' onClick={logOutUser}>Log Out</button>):
+          loggedInState()[0]? (<button className='header__auth__button' onClick={logOutUser}>Log Out</button>):
           (<button className='header__auth__button' onClick={() => navigate('/login')}>Log In</button>)
         }
         {
-          decryptFromLocalStorage()[0] ? (
+          loggedInState()[0] ? (
             <div className='header__nav__profile__dataContainer'>
               <div className='header__nav__profile-image__container' onClick={handleProfileIconClick} >
                 {

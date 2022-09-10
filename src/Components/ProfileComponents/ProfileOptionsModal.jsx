@@ -44,12 +44,17 @@ function ProfileOptionsModal({handleProfileIconClick, username}) {
     handleMouseOver()
   }, [])
 
+  const handleIconClick = () => {
+    navigate('/login')
+    handleProfileIconClick()
+  }
+
   return (
       <div className='profileOptionsModal'>
         { 
           !loggedInState()[0] && screenWidth < 768 ? (
             <ul className='profileOptionsModal__list'>
-              <li className='profileOptionsModal__list__item' onClick={() => navigate('/login')}>Log In</li>
+              <li className='profileOptionsModal__list__item' onClick={handleIconClick}>Log In</li>
             </ul>
           ): loggedInState()[0] ? (
             <ul className='profileOptionsModal__list'>

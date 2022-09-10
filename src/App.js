@@ -57,7 +57,6 @@ function App() {
     <>
       <BrowserRouter>
         <Header profileIconClicked={profileIconClicked} handleProfileIconClick={handleProfileIconClick}/>
-
         <section className='content-body'>
           { profileIconClicked && <Backdrop handleProfileIconClick={handleProfileIconClick}/>}
           {/* {

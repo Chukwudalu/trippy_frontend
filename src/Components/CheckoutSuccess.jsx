@@ -2,7 +2,6 @@ import { useEffect } from 'react'
 import axios from 'axios'
 
 function CheckoutSuccess() {
-
   // This is only temporary
   useEffect(() => {
     handleCreateBooking()
@@ -25,8 +24,11 @@ function CheckoutSuccess() {
   }
 
   return (
-    <div>
+    <div className='checkout-success'>
+      <div> 
         <h2>Your Tour Purchase was Successfull</h2>
+        <button onClick={ window.location.assign('/')}>Go to home</button>
+      </div>
         
     </div>
   )

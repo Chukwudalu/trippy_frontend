@@ -1,4 +1,5 @@
-import axios from 'axios'
+import axios from 'axios';
+import loggedInState from './loggedInState';
 import { EncryptStorage } from 'encrypt-storage';
 
 const createEncyptStorage = () => {
@@ -9,10 +10,11 @@ const createEncyptStorage = () => {
 }
 
 const logOutUser = () => {
-    axios.get(`${process.env.REACT_APP_SERVER_URL}/api/v1/users/logout`, { withCredentials: true})
+    axios.post(`${process.env.REACT_APP_SERVER_URL}/api/v1/users/logout`, { token: loggedInState()[1]} ,{ withCredentials: true})
       .then(res => {
         if(res.data.status === 'success'){
           createEncyptStorage().removeItem('loggedInState')
+          createEncyptStorage().removeItem('gat')
           window.location.reload(true)
         }
       })

@@ -53,7 +53,7 @@ function Auth() {
           // const username = res.data.data.user.name.split(' ')[0]
           console.log(res.data)
           encryptAndSaveToLocalStorage(res.data.isLoggedIn, res.data.token)
-          navigate('/')
+          window.location.assign('/')
         })
         .catch(err => {
           setAuthError(true);
@@ -73,7 +73,7 @@ function Auth() {
         .then(res => { 
           // const username = res.data.data.user.name.split(' ')[0]
           encryptAndSaveToLocalStorage(res.data.isLoggedIn, res.data.token)
-          navigate('/')
+          window.location.assign('/')
         })
         .catch(err => {
           setAuthError(true);

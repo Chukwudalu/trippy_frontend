@@ -33,26 +33,6 @@ function Settings() {
         setPhoto(e.target.files[0])
     }
 
-    // const createEncyptStorage = () => {
-    //     const encryptStorage = new EncryptStorage(process.env.REACT_APP_LOCALSTORAGE_ENCRYPTION_SECRET_KEY, {
-    //       prefix: '@base'
-    //     }); 
-    //     return encryptStorage
-    // }
-
-    // const encryptAndSaveToLocalStorage = (res) => {
-    //     createEncyptStorage().setItem('name', res.data.data.user.name.split(' ')[0])
-    //     createEncyptStorage().setItem('photo', res.data.data.user.photo)
-    // }
-    
-    // const decryptFromLocalStorage = () => {
-    //     const loggedInState = createEncyptStorage().getItem('loggedInState');
-    //     const username = createEncyptStorage().getItem('username');
-    //     const role = createEncyptStorage().getItem('role');
-    //     const photo = createEncyptStorage().getItem('photo');
-    //     return [loggedInState, username, role, photo]
-    // }
-
     const updateUserData = () => {
         const formData = new FormData()
         formData.append('name', name);

@@ -1,6 +1,5 @@
 import {useState, useEffect} from 'react'
-import { SettingsOutlined } 
-from '@mui/icons-material';
+import { SettingsOutlined } from '@mui/icons-material';
 import Settings from '../Components/ProfileComponents/Settings'
 import UpcomingFeature from '../Components/ProfileComponents/UpcomingFeature';
 import useResizer from '../utils/customHooks/useResizer';

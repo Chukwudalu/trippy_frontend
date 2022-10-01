@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { AccountCircleOutlined } from '@mui/icons-material'
+import { DragHandleOutlined } from '@mui/icons-material'
 import { EncryptStorage } from 'encrypt-storage';
 import loggedInState from '../utils/loggedInState';
 import axios from 'axios';
@@ -61,7 +61,7 @@ function Header({profileIconClicked, handleProfileIconClick}) {
           loggedInState()[0] ? (
             <div className='header__nav__profile__dataContainer'>
               <div className='header__nav__profile-icon__container' onClick={handleProfileIconClick} >
-                <AccountCircleOutlined className='profile-icon MuiIcon-fontSizeLarge'/>
+                <DragHandleOutlined className='profile-icon MuiIcon-fontSizeLarge'/>
               </div>
               {/* <div className='header__nav__profile-image__container' onClick={handleProfileIconClick} >
                 {
@@ -76,7 +76,7 @@ function Header({profileIconClicked, handleProfileIconClick}) {
           ):(
             <div className="header__nav__profile__dataContainer">
               <div className='header__nav__profile-icon__container' onClick={handleProfileIconClick} >
-                <AccountCircleOutlined className='profile-icon MuiIcon-fontSizeLarge'/>
+                <DragHandleOutlined className='profile-icon MuiIcon-fontSizeLarge'/>
               </div>
               { profileIconClicked && <ProfileOptionsModal handleProfileIconClick={handleProfileIconClick}/>}
             </div>

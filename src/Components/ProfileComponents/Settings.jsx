@@ -1,6 +1,7 @@
 import {useEffect, useState} from 'react';
 import axios from 'axios';
 import loggedInState from '../../utils/loggedInState';
+
 // import { EncryptStorage } from 'encrypt-storage';
 // import guide2 from '../../assets/tourGuideImg/guide2.jpg'
 
@@ -37,7 +38,9 @@ function Settings() {
         const formData = new FormData()
         formData.append('name', name);
         formData.append('email', email);
-        formData.append('photo', photo)
+        formData.append('photo', photo);
+        formData.append('token', loggedInState()[1])
+
         axios.patch(`${process.env.REACT_APP_SERVER_URL}/api/v1/users/updateMe`, formData , { withCredentials: true })
             .then(res => {
                 setName(res.data.data.user.name)

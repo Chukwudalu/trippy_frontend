@@ -83,14 +83,14 @@ function Settings() {
                         <label htmlFor='email' className='profile__form__label'>Email</label>
                         <input type="email" required className='profile__form__input' value={email} onChange={(e) => setEmail(e.target.value)}/>
                     </div>
-                    <div className='profile__form__photo-group'>
+                    {/* <div className='profile__form__photo-group'>
                         <div className='profile__photo__container'>
                             <img src={photoUrl} alt="user profile photo" className='profile__photo'/>
                         </div>
-                        {/* <button className='profile__photo__change__btn'>Choose new photo</button> */}
+                        
                         <input type="file" accept='image/*' name="photo" id="photo" className='profile__photo__change__btn' onChange={handleUserPhotoChange} />
-                        {/* <label htmlFor="photo">Choose new photo</label> */}
-                    </div>
+                        
+                    </div> */}
                     <div className='settings__btn__container'>
                         <button className='settings__btn' type='submit'>Save Settings</button> 
                     </div>

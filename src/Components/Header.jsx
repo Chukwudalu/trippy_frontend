@@ -60,16 +60,16 @@ function Header({profileIconClicked, handleProfileIconClick}) {
         {
           loggedInState()[0] ? (
             <div className='header__nav__profile__dataContainer'>
-              <div className='header__nav__profile-icon__container' onClick={handleProfileIconClick} >
+              {/* <div className='header__nav__profile-icon__container' onClick={handleProfileIconClick} >
                 <AccountCircleOutlined className='profile-icon MuiIcon-fontSizeLarge'/>
-              </div>
-              {/* <div className='header__nav__profile-image__container' onClick={handleProfileIconClick} >
+              </div> */}
+              <div className='header__nav__profile-image__container' onClick={handleProfileIconClick} >
                 {
                   userInfo.photo ? <img src={userInfo.photo} alt="user picture" className="header__nav__profile-image"/>:
                   <IKImage urlEndpoint={urlEndpoint} path='users_avatars/photolessLoggedInUser_CzFs4sQGE.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1661236175551' 
                   alt="user picture" className="header__nav__profile-image"/>
                 }
-              </div> */}
+              </div>
               <p className='header__nav__profile__username'>{userInfo.name?.split(' ')[0]}</p>
               { profileIconClicked && <ProfileOptionsModal handleProfileIconClick={handleProfileIconClick} username={userInfo.name}/>}
             </div>

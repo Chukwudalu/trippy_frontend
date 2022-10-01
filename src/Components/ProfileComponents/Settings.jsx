@@ -42,7 +42,7 @@ function Settings() {
             .then(res => {
                 setName(res.data.data.user.name)
                 setEmail(res.data.data.user.email)
-                setPhotoUrl(res.data.data.user.photo)
+                // setPhotoUrl(res.data.data.user.photo)
                 window.location.reload(true)
             })
             .catch(err => console.log(err.message))

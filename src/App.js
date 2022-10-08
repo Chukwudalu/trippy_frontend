@@ -18,6 +18,7 @@ import BookedTours from './Pages/BookedTours';
 // import loggedInState from './utils/loggedInState';
 // import WelcomeModal from './Components/WelcomeModal';
 import Footer from './Components/Footer';
+import { SkeletonTheme } from "react-loading-skeleton"
 
 
 function App() {
@@ -55,29 +56,32 @@ function App() {
 
   return (
     <>
-      <BrowserRouter>
-        <Header profileIconClicked={profileIconClicked} handleProfileIconClick={handleProfileIconClick}/>
-        <section className='content-body'>
-          { profileIconClicked && <Backdrop handleProfileIconClick={handleProfileIconClick}/>}
-          {/* {
-            modalState && (<WelcomeModal closeModal={closeModal} modalState={modalState}/>)
-          } */}
-          <Routes>
-            <Route path='/' element={<Home/>}/>
-            <Route path='/tours/:slug' element={<TourDetail/>}/>
-            <Route path='/login' element={<Auth handleLoggedInState={handleLoggedInState} loggedIn={loggedIn}/>} />
-            <Route path='/signup' element={<Auth handleLoggedInState={handleLoggedInState} loggedIn={loggedIn}/>} />
-            <Route path='/profile/me' element={<Account/>}/>
-            <Route path='/resetPassword/:resetToken' element={<ResetPassword/>}/>
-            <Route path='/forgotPassword' element={<EmailEntryForPasswordReset/>}/>
-            <Route path='/account' element={<Settings/>}/>
-            <Route path='/checkout-success/*' element={<CheckoutSuccess/>}/>
-            <Route path='*' element={<NotFound/>}/>
-            <Route path='/booked-tours' element={<BookedTours/>}/>
-          </Routes>
-        </section>
-        <Footer/>
-      </BrowserRouter>
+      <SkeletonTheme baseColor="#b5b5b5" highlightColor="#525252">
+        <BrowserRouter>
+          <Header profileIconClicked={profileIconClicked} handleProfileIconClick={handleProfileIconClick}/>
+          <section className='content-body'>
+            { profileIconClicked && <Backdrop handleProfileIconClick={handleProfileIconClick}/>}
+            {/* {
+              modalState && (<WelcomeModal closeModal={closeModal} modalState={modalState}/>)
+            } */}
+            <Routes>
+              <Route path='/' element={<Home/>}/>
+              <Route path='/tours/:slug' element={<TourDetail/>}/>
+              <Route path='/login' element={<Auth handleLoggedInState={handleLoggedInState} loggedIn={loggedIn}/>} />
+              <Route path='/signup' element={<Auth handleLoggedInState={handleLoggedInState} loggedIn={loggedIn}/>} />
+              <Route path='/profile/me' element={<Account/>}/>
+              <Route path='/resetPassword/:resetToken' element={<ResetPassword/>}/>
+              <Route path='/forgotPassword' element={<EmailEntryForPasswordReset/>}/>
+              <Route path='/account' element={<Settings/>}/>
+              <Route path='/checkout-success/*' element={<CheckoutSuccess/>}/>
+              <Route path='*' element={<NotFound/>}/>
+              <Route path='/booked-tours' element={<BookedTours/>}/>
+            </Routes>
+          </section>
+          <Footer/>
+        </BrowserRouter>
+      </SkeletonTheme>
+      
     </>
   );
 }

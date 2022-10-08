@@ -2,7 +2,8 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import TourCard from '../Components/TourCard'
 import loggedInState from '../utils/loggedInState';
-
+import SkeletonCard from './SkeletonCard'
+import 'react-loading-skeleton/dist/skeleton.css'
 
 function Tours() {
 
@@ -52,8 +53,9 @@ function Tours() {
       <h2 className='tours__heading'>All Tours</h2>
       <section className='tours__list'>
         {
+           
           // Array.apply(null, {length: 5}).map((card, i) => <TourCard key={i}/>)
-          tours && tours.map((tour) => <TourCard 
+          tours.length ? tours.map((tour) => <TourCard 
             key={tour.id} 
             tourId={tour.id}
             tourName={tour.name}
@@ -69,7 +71,7 @@ function Tours() {
             tourSlug={tour.slug}
             tourLiked={userLikedTours.includes(tour.id)}
             likeCount = {tour.tourLikers.length}
-          />)
+          /> ) : (<SkeletonCard cards={9}/>)
         }
       </section>
     </section>

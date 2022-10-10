@@ -51,7 +51,7 @@ function Header({profileIconClicked, handleProfileIconClick}) {
 
   return (
     <header className='header'>
-      <h1 className='header__title' onClick={() => navigate('/')}>Trippy</h1>
+      <h1 className='header__title' onClick={() => navigate('/')}>AirTrippy</h1>
       <nav className='header__nav'>
         {
           loggedInState()[0]? (<button className='header__auth__button' onClick={logOutUser}>Log Out</button>):
